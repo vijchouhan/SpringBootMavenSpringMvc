@@ -1,5 +1,7 @@
 package com.springboot.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,10 +10,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.springboot.MainApp;
+
 @Controller
 public class HelloController {
+	private static final Logger logger = LogManager.getLogger(MainApp.class);
 	@RequestMapping("/")
 	public String index(){
+		logger.info("inside controller index method");
 		return "index";
 	}
 	
@@ -20,6 +26,7 @@ public class HelloController {
 	
 	 @PostMapping("/hello")
 	   public String sayHello(@RequestParam("name") String name, Model model) {
+		 logger.info("inside controller sayHello method");
 	      model.addAttribute("name", name);
 	      return "hello";
 	   }
