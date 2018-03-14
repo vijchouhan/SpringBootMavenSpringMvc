@@ -30,6 +30,12 @@ public class StudentServiceImpl implements StudentService {
 	public Student getStudentDetails(long studentId) {
 		return studentDao.getStudentDetails(studentId);
 	}
+	
+	@Override
+	public List<Student> getAllStudentDetails(){
+		return studentDao.getAllStudentDetails();
+	}
+	
 
 	}
 

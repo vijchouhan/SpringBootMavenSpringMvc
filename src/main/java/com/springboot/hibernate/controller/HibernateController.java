@@ -1,5 +1,7 @@
 package com.springboot.hibernate.controller;
 
+import java.util.List;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,15 @@ public class HibernateController {
 		return new ResponseEntity(student, HttpStatus.OK);
 	}
 	
+	@RequestMapping(value = "/allStudents", method = RequestMethod.GET)
+	//public @ResponseBody Student getStudentDetails(@RequestParam long studentId) {
+	public ResponseEntity getAllStudentDetails() {	
+		//studentService.saveStudentDetails(student);
+		List<Student> student = studentService.getAllStudentDetails();
+		return new ResponseEntity(student, HttpStatus.OK);
+	}
+	
+	
 /* request object for saveStudent method...........
  * http://localhost:8086/saveStudent
  {
@@ -80,6 +91,9 @@ public class HibernateController {
  * http://localhost:8086/getStudent?studentId=1
  * http://localhost:8086/getStudent?studentId=2
  * http://localhost:8086/getStudent?studentId=3
- */	
 	
+	
+/* url for getAllStudentDetails method....
+ * http://localhost:8086/allStudents
+ * */
 }
