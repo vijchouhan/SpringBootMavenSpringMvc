@@ -8,7 +8,6 @@ import com.springboot.hibernate.model.Student;
 @Service
 public interface StudentService {
 	void saveStudentDetails(Student student);
-	//void saveStudentDetails();
 	Student getStudentDetails(long studentId); 
 	List<Student> getAllStudentDetails();
 

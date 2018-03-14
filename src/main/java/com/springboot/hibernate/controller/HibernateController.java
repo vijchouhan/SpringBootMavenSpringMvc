@@ -30,25 +30,19 @@ public class HibernateController {
 	
 	@RequestMapping(value = "/saveStudent", method = RequestMethod.POST)
 	public ResponseEntity saveStudentDetails(@RequestBody Student student) {
-		//public ResponseEntity saveStudentDetails() {
 		studentService.saveStudentDetails(student);
-		//studentService.saveStudentDetails();
 		return new ResponseEntity(student, HttpStatus.OK);
 	}
 	
 	
 	@RequestMapping(value = "/getStudent", method = RequestMethod.GET)
-	//public @ResponseBody Student getStudentDetails(@RequestParam long studentId) {
 	public ResponseEntity getStudentDetails(@RequestParam long studentId) {	
-		//studentService.saveStudentDetails(student);
 		Student student = studentService.getStudentDetails(studentId);
 		return new ResponseEntity(student, HttpStatus.OK);
 	}
 	
 	@RequestMapping(value = "/allStudents", method = RequestMethod.GET)
-	//public @ResponseBody Student getStudentDetails(@RequestParam long studentId) {
 	public ResponseEntity getAllStudentDetails() {	
-		//studentService.saveStudentDetails(student);
 		List<Student> student = studentService.getAllStudentDetails();
 		return new ResponseEntity(student, HttpStatus.OK);
 	}

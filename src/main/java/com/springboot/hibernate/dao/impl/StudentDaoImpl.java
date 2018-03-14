@@ -24,17 +24,6 @@ public class StudentDaoImpl implements StudentDao {
 	
 	@Transactional
 	public void saveStudentDetails(Student student){
-	
-	/*	public void saveStudentDetails(){
-	
-		HashSet<Phone> setPhone= new HashSet<Phone>();
-		setPhone.add(new Phone("A","121212"));
-		setPhone.add(new Phone("B","2323232"));
-		setPhone.add(new Phone("C","343434"));
-		setPhone.add(new Phone("D","4545454"));
-		setPhone.add(new Phone("E","67676767"));
-		
-		Student student = new Student("Vijay", setPhone);	*/	
 		entityManager.merge(student);
 	}
 

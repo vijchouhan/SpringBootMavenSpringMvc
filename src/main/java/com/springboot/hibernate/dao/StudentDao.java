@@ -9,7 +9,6 @@ import com.springboot.hibernate.model.Student;
 @Repository
 public interface StudentDao {
 	void saveStudentDetails(Student student);
-	//void saveStudentDetails();
 	Student getStudentDetails(long studentId);
 	List<Student> getAllStudentDetails();
 
