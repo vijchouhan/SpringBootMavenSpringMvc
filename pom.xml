@@ -81,6 +81,7 @@
 		</dependency>
 		
 <!-- setting for hibernate end -->		
+
 </dependencies>
 
 <build>

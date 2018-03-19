@@ -23,6 +23,7 @@ import com.springboot.hibernate.model.Student;
 import com.springboot.hibernate.service.StudentService;
 
 @Controller
+@RequestMapping("/product")
 public class HibernateController {
 	private static final Logger logger = LogManager.getLogger(MainApp.class);
 	@Autowired
