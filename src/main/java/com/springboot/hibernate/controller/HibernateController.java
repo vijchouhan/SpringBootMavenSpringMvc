@@ -1,5 +1,10 @@
 package com.springboot.hibernate.controller;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
+
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -22,33 +27,36 @@ import com.springboot.MainApp;
 import com.springboot.hibernate.model.Student;
 import com.springboot.hibernate.service.StudentService;
 
-@Controller
+//@Controller
+@RestController
 @RequestMapping("/product")
+@Api(value="HibernateCRUD", description="CRUD Operations by Hibernate H2Database")
 public class HibernateController {
 	private static final Logger logger = LogManager.getLogger(MainApp.class);
 	@Autowired
 	StudentService studentService;
 	
+	@ApiOperation(value="Save student details")
 	@RequestMapping(value = "/saveStudent", method = RequestMethod.POST)
 	public ResponseEntity saveStudentDetails(@RequestBody Student student) {
 		studentService.saveStudentDetails(student);
 		return new ResponseEntity(student, HttpStatus.OK);
 	}
 	
-	
+	@ApiOperation(value="Get student details")
 	@RequestMapping(value = "/getStudent", method = RequestMethod.GET)
 	public ResponseEntity getStudentDetails(@RequestParam long studentId) {	
 		Student student = studentService.getStudentDetails(studentId);
 		return new ResponseEntity(student, HttpStatus.OK);
 	}
 	
+	@ApiOperation(value="Get All student details")
 	@RequestMapping(value = "/allStudents", method = RequestMethod.GET)
 	public ResponseEntity getAllStudentDetails() {	
 		List<Student> student = studentService.getAllStudentDetails();
 		return new ResponseEntity(student, HttpStatus.OK);
 	}
-	
-	
+   
 /* request object for saveStudent method...........
  * http://localhost:8086/saveStudent
  {
